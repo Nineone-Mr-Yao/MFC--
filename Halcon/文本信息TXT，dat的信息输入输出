@@ -23,4 +23,17 @@
 	m_cstring=a+" "+a1+" "+a2+" "+a3;//显示在编辑框
 	UpdateData(FALSE);
   
-  
+  上面是儿子写的，带有换行符，并不实用。String
+  实际上应用时采用读取字符串更为实用,读取字符串时并不会将写入时的换行符一并读出。
+  open_file("C:/Users/95772/Desktop/2.dat", "input", &FileHandle1);
+  fread_line(FileHandle1, &OutLine, &IsEOF);	//按行读取，读第一行
+	fread_string(FileHandle1, &OutLine1, &IsEOF1);//读第2行
+	fread_string(FileHandle1, &OutLine2, &IsEOF2);
+	fread_string(FileHandle1, &OutLine3, &IsEOF3);	
+	close_file(FileHandle1);
+	CString a=OutLine[0].S();//halcon和C++的转换
+	CString a1=OutLine1[0].S();
+	CString a2=OutLine2[0].S();
+	CString a3=OutLine3[0].S();
+	m_cstring=a+" "+a1+" "+a2+" "+a3;//显示在编辑框
+	UpdateData(FALSE);
